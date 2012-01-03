@@ -27,13 +27,13 @@ on init
     mkdir /dev/pipes 0771 shell shell        
 
 on fs
-    mount ext4 /dev/block/mmcblk0p4 /system wait ro
+    mount ext4 /dev/block/mmcblk0p4 /system noatime wait discard,noauto_da_alloc,data=writeback
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
-    mount ext4 /dev/block/mmcblk0p5 /cache wait noatime nosuid nodev
+    mount ext4 /dev/block/mmcblk0p5 /cache wait noatime nosuid nodev errors=continue
     exec check_filesystem /dev/block/mmcblk0p8 ext4
-    mount ext4 /dev/block/mmcblk0p8 /data wait noatime nosuid nodev discard,noauto_da_alloc
+    mount ext4 /dev/block/mmcblk0p8 /data wait noatime nosuid nodev discard,noauto_da_alloc,errors=continue
 
-    # mound EFS partition
+    # mount EFS partition
     mount ext4 /dev/block/mmcblk0p1 /efs wait noatime nosuid nodev
 
 on post-fs-data
@@ -182,8 +182,9 @@ on boot
 # to enable wifi
 #    setprop wifi.interface eth0
 # Power management settings
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
+# Let the kernel and utilities like SetCPU take care of this
+#write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+#write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
 
 # HSIC control
     chown radio system /sys/devices/platform/tegra-ehci.1/ehci_power

@@ -63,8 +63,13 @@ PRODUCT_PROPERTY_OVERRIDES := \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15
 
+# Set default USB interface
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+	persist.sys.usb.config=mtp
+	
 PRODUCT_PACKAGES += \
-        libinvensense_mpl
+        libinvensense_mpl \
+        com.android.future.usb.accessory
 
 PRODUCT_PACKAGES += \
         audio.a2dp.default \
@@ -103,6 +108,12 @@ PRODUCT_PACKAGES += \
 	make_ext4fs \
 	setup_fs
 
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+        LiveWallpapers \
+        LiveWallpapersPicker \
+        VisualizationWallpapers
+        
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
 
@@ -113,6 +124,7 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
         system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
         system/extras/bugmailer/send_bug:system/bin/send_bug
 endif
+
 
 $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
 
