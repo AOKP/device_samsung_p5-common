@@ -102,15 +102,13 @@ COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_
 # Use Old Style USB Mounting Until we get kernel source
 # BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 
-
-
 # Enabled For HW Video Decoding
-TARGET_OVERLAY_ALWAYS_DETERMINES_FORMAT := true
-TARGET_USE_SOFTWARE_AUDIO_AAC := true
+# TARGET_OVERLAY_ALWAYS_DETERMINES_FORMAT := true
+# TARGET_USE_SOFTWARE_AUDIO_AAC := true
 
 # Enabled for HW video recording
-BOARD_USES_HW_MEDIARECORDER := true
+# BOARD_USES_HW_MEDIARECORDER := true
 
 # Use screencap to capture frame buffer for ddms
-BOARD_USE_SCREENCAP := true
+# BOARD_USE_SCREENCAP := true
 
