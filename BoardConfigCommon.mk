@@ -97,18 +97,3 @@ BOARD_CHARGING_MODE_BOOTING_LPM := "/sys/class/power_supply/battery/charging_mod
 # Don't dequeue current buffer
 BOARD_NO_ALLOW_DEQUEUE_CURRENT_BUFFER := true
 
-COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS -DFORCE_EGL_CONFIG=0x3
-
-# Use Old Style USB Mounting Until we get kernel source
-# BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-
-# Enabled For HW Video Decoding
-# TARGET_OVERLAY_ALWAYS_DETERMINES_FORMAT := true
-# TARGET_USE_SOFTWARE_AUDIO_AAC := true
-
-# Enabled for HW video recording
-# BOARD_USES_HW_MEDIARECORDER := true
-
-# Use screencap to capture frame buffer for ddms
-# BOARD_USE_SCREENCAP := true
-
