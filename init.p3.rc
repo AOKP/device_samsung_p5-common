@@ -186,6 +186,10 @@ on boot
 #write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
 #write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
 
+# Power management settings, switch kernel to prefered governor, seems to prime and allow SetCPU to work on boot
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
+
 # HSIC control
     chown radio system /sys/devices/platform/tegra-ehci.1/ehci_power
 
