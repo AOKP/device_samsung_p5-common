@@ -60,16 +60,11 @@ PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/lpm/media/Disconnected.qmg:system/media/Disconnected.qmg
 
 PRODUCT_PROPERTY_OVERRIDES := \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=30
+    wifi.interface=eth0 \
+    wifi.supplicant_scan_interval=90
 
-# Set default USB interface
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mtp
-	
 PRODUCT_PACKAGES += \
-        libinvensense_mpl \
-        com.android.future.usb.accessory
+        libinvensense_mpl
 
 PRODUCT_PACKAGES += \
         audio.a2dp.default \
@@ -112,8 +107,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
         LiveWallpapers \
         LiveWallpapersPicker \
-        VisualizationWallpapers
-        
+        VisualizationWallpapers \
+        MagicSmokeWallpapers \
+        HoloSpiralWallpaper
+
+# Added Packages
+PRODUCT_PACKAGES += \
+	Camera \
+	SpareParts
+
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
 
