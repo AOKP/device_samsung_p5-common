@@ -21,15 +21,7 @@
      for different hardware and product builds. -->
 <resources>
 
-    <bool name="config_showNavigationBar">false</bool>
-
-    <bool name="config_batterySdCardAccessibility">true</bool>
-
-    <bool name="config_sf_limitedAlpha">true</bool>
- 
     <bool name="config_allowAllRotations">true</bool>
-
-    <bool name="config_sf_slowBlur">true</bool>
 
     <bool name="config_automatic_brightness_available">true</bool>
 
@@ -43,46 +35,30 @@
          Zone N + 1     array[N] <= LUX < infinity
 
          Must be overridden in platform specific overlays -->
+    <!-- The p5wifi light sensors reports 20,200,1000,2000,8000,20000,40000,70000 -->
     <integer-array name="config_autoBrightnessLevels">
-         <item>10</item>
-         <item>25</item>
-         <item>50</item>
-         <item>100</item>
-         <item>150</item>
          <item>200</item>
-         <item>700</item>
-         <item>1300</item>
+         <item>1000</item>
          <item>2000</item>
-         <item>3000</item>
-         <item>4000</item>
-         <item>5000</item>
-         <item>6000</item>
-         <item>7000</item>
          <item>8000</item>
-         <item>9000</item>
+         <item>20000</item>
+         <item>40000</item>
+         <item>70000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
+    <!-- Values taken from stock Honeycomb 3.1 firmware and confirmed still being the same in stock 3.2 (KJ5) firmware -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-         <item>32</item>
-         <item>32</item>
-         <item>32</item>
-         <item>32</item>
-         <item>64</item>
-         <item>64</item>
-         <item>95</item>
-         <item>95</item>
-         <item>122</item>
-         <item>149</item>
-         <item>176</item>
-         <item>197</item>
-         <item>228</item>
-         <item>255</item>
-         <item>255</item>
-         <item>255</item>
+         <item>35</item>
+         <item>80</item>
+         <item>150</item>
+         <item>162</item>
+         <item>175</item>
+         <item>198</item>
+         <item>226</item>
          <item>255</item>
     </integer-array>
 
@@ -99,22 +75,21 @@
         <item>0</item>
         <item>0</item>
         <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
-    
-    <integer name="config_screenBrightnessDim">10</integer>
-	
-	<string-array translatable="false" name="config_tether_usb_regexs">
+
+    <!-- Minimum screen brightness allowed by the power manager. -->
+    <integer name="config_screenBrightnessDim">20</integer>
+
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         USB interfaces.  If the device doesn't want to support tething over USB this should
+         be empty.  An example would be "usb.*" -->
+    <string-array translatable="false" name="config_tether_usb_regexs">
 	<item>"rndis0"</item>
     </string-array>
+
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
+         should be empty. -->
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
         <item>"bnep\\d"</item>
     </string-array>
@@ -130,8 +105,12 @@
    <!-- Boolean indicating whether the wifi chipset has background scan support -->
    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
+    <!-- Component name of the service providing network location support. -->
     <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string>
 
-   <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
+    <!-- Component name of the service providing geocoder API support. -->
+    <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
+    
+	<bool name="config_forceDisableHardwareKeyboard">true</bool>
 	
 </resources>
