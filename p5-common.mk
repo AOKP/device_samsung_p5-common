@@ -120,6 +120,9 @@ PRODUCT_PACKAGES += \
 	Camera \
 	SpareParts
 
+# Superuser
+PRODUCT_PACKAGES += Superuser
+
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
 
