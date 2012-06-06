@@ -97,3 +97,6 @@ BOARD_CHARGING_MODE_BOOTING_LPM := "/sys/class/power_supply/battery/charging_mod
 # Don't dequeue current buffer
 BOARD_NO_ALLOW_DEQUEUE_CURRENT_BUFFER := true
 
+# skip ota device assert
+TARGET_OTA_ASSERT_SKIP := true
+
